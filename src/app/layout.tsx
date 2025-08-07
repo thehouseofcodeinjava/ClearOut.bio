@@ -1,6 +1,5 @@
-
 import type { Metadata } from 'next';
-import './globals.css'; 
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'ClearOut.bio | Clean Your Bio Page',
