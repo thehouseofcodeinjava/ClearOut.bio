@@ -107,7 +107,7 @@ export default function HomePage() {
         </p>
       </header>
 
-      <div className="w-full max-w-2xl glass-card p-8 glow-on-hover">
+      <div className="max-w-2xl glass-card p-8 glow-on-hover">
         <form onSubmit={handleSubmit}>
           <label
             htmlFor="url-input"
@@ -133,7 +133,7 @@ export default function HomePage() {
         </form>
       </div>
 
-      <div className="w-full max-w-4xl mt-12">
+      <div className="max-w-4xl mt-12">
         {error && (
           <div className="bg-red-900/50 text-red-300 p-4 rounded-md text-center">
             {error}
