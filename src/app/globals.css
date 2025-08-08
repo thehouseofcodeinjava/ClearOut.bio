@@ -1,81 +1,68 @@
 @import "tailwindcss";
 
-:root {
-  --background-start-rgb: 29, 38, 53;
-  --background-end-rgb: 63, 76, 107;
-  --foreground-rgb: 230, 230, 230;
-
-  --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-  --secondary-glow: linear-gradient(
-    to bottom right,
-    rgba(1, 65, 255, 0),
-    rgba(1, 65, 255, 0),
-    rgba(1, 65, 255, 0.3)
-  );
-
-  --tile-start-rgb: 2, 132, 199;
-  --tile-end-rgb: 2, 5, 19;
-  --tile-border: conic-gradient(
-    #ffffff80,
-    #ffffff40,
-    #ffffff30,
-    #ffffff20,
-    #ffffff10,
-    #ffffff10,
-    #ffffff80
-  );
-
-  --callout-rgb: 20, 110, 180;
-  --callout-border-rgb: 108, 117, 125;
-  --card-rgb: 180, 180, 180;
-  --card-border-rgb: 130, 130, 130;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-    --foreground-rgb: 255, 255, 255;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 132, 199;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 110, 180;
-    --callout-border-rgb: 108, 117, 125;
-    --card-rgb: 180, 180, 180;
-    --card-border-rgb: 130, 130, 130;
+@keyframes animate-background {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    -45deg,
+    #0d0221,
+    #0d0221,
+    #241744,
+    #241744,
+    #0d0221,
+    #0d0221
+  );
+  background-size: 400% 400%;
+  animation: animate-background 15s ease infinite;
+  color: #f0f0f0;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glow-on-hover:hover {
+  box-shadow: 0 0 15px rgba(173, 216, 230, 0.6),
+    0 0 30px rgba(173, 216, 230, 0.4), 0 0 45px rgba(173, 216, 230, 0.2);
+}
+
+.text-glow {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+    0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #8a2be2, #4b0082);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.7);
+}
+
+.btn-primary:disabled {
+  background: #3c3c3c;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
