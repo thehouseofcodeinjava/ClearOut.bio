@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes animate-background {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(
+    -45deg,
+    #0d0221,
+    #0d0221,
+    #241744,
+    #241744,
+    #0d0221,
+    #0d0221
+  );
+  background-size: 400% 400%;
+  animation: animate-background 15s ease infinite;
+  color: #f0f0f0;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glow-on-hover:hover {
+  box-shadow: 0 0 15px rgba(173, 216, 230, 0.6),
+    0 0 30px rgba(173, 216, 230, 0.4), 0 0 45px rgba(173, 216, 230, 0.2);
+}
+
+.text-glow {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+    0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #8a2be2, #4b0082);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.7);
+}
+
+.btn-primary:disabled {
+  background: #3c3c3c;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
